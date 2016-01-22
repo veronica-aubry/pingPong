@@ -5,7 +5,7 @@ divCount = function(countTo, countBy) {
       var countArray = [];
       for (var i = 0; i < quotient; i++) {
         var result = result + countBy;
-        countArray.push(result);
+        countArray.unshift(result);
       }
         return countArray;
   }else {
@@ -15,26 +15,14 @@ divCount = function(countTo, countBy) {
 }
 
 pingPong = function(countArray) {
-  var divisors = [3,5,15];
-
   countArray.forEach(function(count) {
     var arrayIndex = countArray.indexOf(count)
     if ((count % 3 === 0) && (count % 5 != 0)) {
       countArray[arrayIndex] = "ping";
-    }
-  });
-
-  countArray.forEach(function(count) {
-    var arrayIndex = countArray.indexOf(count)
-    if ((count % 5 === 0) && (count % 3 != 0)) {
-      countArray[arrayIndex] = "pong";
-    }
-  });
-
-  countArray.forEach(function(count) {
-    var arrayIndex = countArray.indexOf(count)
-    if ((count % 5 === 0) && (count % 3 === 0)) {
-      countArray[arrayIndex] = "pingpong";
+    }else if ((count % 5 === 0) && (count % 3 != 0)) {
+        countArray[arrayIndex] = "pong";
+    }else if ((count % 5 === 0) && (count % 3 === 0)) {
+      countArray[arrayIndex] = "pingpong"
     }
   });
   return countArray;
@@ -43,20 +31,17 @@ pingPong = function(countArray) {
 
 $(document).ready(function(){
   $("form#numberEnter").submit(function(event) {
+    debugger;
   var countTo = parseInt($("input#countTo").val());
   var countBy = parseInt($("input#countBy").val());
 
   var ppResult = pingPong(divCount(countTo, countBy));
 
-  // ppResult.forEach(function(result) {
-  //   $("ul#results").prepend("<li>Goodbye, dear user!</li>");
-  // });
+  var list = $("#results");
 
-var list = $("#results");
-
-list.each(function(i){
-    for (var x = 0; x < ppResult.length; x++){
-      $(this).prepend('<li>' + ppResult[x] + '</li>');
+  list.each(function(i){
+  for (var x = 0; x < ppResult.length; x++){
+    $(this).prepend('<li>' + ppResult[x] + '</li>');
   }
 });
 
