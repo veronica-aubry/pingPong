@@ -11,8 +11,16 @@ describe('divCount', function() {
   it("counts closest to (but does not exceed) specified number when countBy number does not fit exactly", function() {
     expect(divCount(11, 5)).to.eql([ 5, 10]);
   });
+});
+
+describe('pingPong', function() {
 
   it("replaces numbers divisible by 3 with ping", function() {
-    expect(divCount(9, 3)).to.eql([ "ping", "ping", "ping"]);
+    expect(pingPong([3, 6, 9])).to.eql([ "ping", "ping", "ping"]);
   });
+
+    it("does not replace numbers not divisible by 3 with ping", function() {
+      expect(pingPong([3, 6, 11])).to.eql([ "ping", "ping", 11]);
+    });
+
 });

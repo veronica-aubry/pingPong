@@ -7,6 +7,7 @@ divCount = function(countTo, countBy) {
         var result = result + countBy;
         countArray.push(result);
       }
+        return countArray;
   }else {
     return "error";
     alert("Make sure you enter integers and your divisor is less than your dividend");
@@ -14,9 +15,12 @@ divCount = function(countTo, countBy) {
 }
 
 pingPong = function(countArray) {
-  var divisors = [
-                  [3, "ping"],
-                  [5, "pong"],
-                  [15, "pingpong"]
-                  ]
-  divisors.forEach(function(divisor) {
+  var divisors = [3,5,15];
+  countArray.forEach(function(count) {
+    var arrayIndex = countArray.indexOf(count)
+    if (count % 3 === 0) {
+      countArray[arrayIndex] = "ping";
+    }
+  });
+  return countArray;
+}
