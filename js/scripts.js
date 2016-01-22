@@ -5,11 +5,18 @@ divCount = function(countTo, countBy) {
       var countArray = [];
       for (var i = 0; i < quotient; i++) {
         var result = result + countBy;
-        countArray.push(" " + result);
+        countArray.push(result);
       }
-        return countArray;
   }else {
     return "error";
     alert("Make sure you enter integers and your divisor is less than your dividend");
   }
 }
+
+pingPong = function(countArray) {
+  var divisors = [
+                  [3, "ping"],
+                  [5, "pong"],
+                  [15, "pingpong"]
+                  ]
+  divisors.forEach(function(divisor) {
