@@ -2,7 +2,7 @@ describe('divCount', function() {
 
   it("returns error if countBy is larger than countTo", function() {
     expect(divCount(5, 50)).to.equal("error");
-});
+  });
 
   it("counts to specified number when countBy number fits exactly", function() {
     expect(divCount(10, 5)).to.eql([ 5, 10]);
@@ -26,5 +26,4 @@ describe('pingPong', function() {
   it("replaces numbers divisible by 3, 5, and 15 with ping, pong, and pingpong", function() {
     expect(pingPong([3, 5, 15])).to.eql([ "ping", "pong", "pingpong"]);
   });
-
 });

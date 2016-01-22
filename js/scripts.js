@@ -16,6 +16,7 @@ divCount = function(countTo, countBy) {
 
 pingPong = function(countArray) {
   var divisors = [3,5,15];
+
   countArray.forEach(function(count) {
     var arrayIndex = countArray.indexOf(count)
     if ((count % 3 === 0) && (count % 5 != 0)) {
@@ -38,3 +39,28 @@ pingPong = function(countArray) {
   });
   return countArray;
 }
+
+
+$(document).ready(function(){
+  $("form#numberEnter").submit(function(event) {
+  var countTo = parseInt($("input#countTo").val());
+  var countBy = parseInt($("input#countBy").val());
+
+  var ppResult = pingPong(divCount(countTo, countBy));
+
+  // ppResult.forEach(function(result) {
+  //   $("ul#results").prepend("<li>Goodbye, dear user!</li>");
+  // });
+
+var list = $("#results");
+
+list.each(function(i){
+    for (var x = 0; x < ppResult.length; x++){
+      $(this).prepend('<li>' + ppResult[x] + '</li>');
+  }
+});
+
+  event.preventDefault();
+
+  });
+});
