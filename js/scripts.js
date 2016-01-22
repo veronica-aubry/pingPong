@@ -18,8 +18,22 @@ pingPong = function(countArray) {
   var divisors = [3,5,15];
   countArray.forEach(function(count) {
     var arrayIndex = countArray.indexOf(count)
-    if (count % 3 === 0) {
+    if ((count % 3 === 0) && (count % 5 != 0)) {
       countArray[arrayIndex] = "ping";
+    }
+  });
+
+  countArray.forEach(function(count) {
+    var arrayIndex = countArray.indexOf(count)
+    if ((count % 5 === 0) && (count % 3 != 0)) {
+      countArray[arrayIndex] = "pong";
+    }
+  });
+
+  countArray.forEach(function(count) {
+    var arrayIndex = countArray.indexOf(count)
+    if ((count % 5 === 0) && (count % 3 === 0)) {
+      countArray[arrayIndex] = "pingpong";
     }
   });
   return countArray;

@@ -19,8 +19,12 @@ describe('pingPong', function() {
     expect(pingPong([3, 6, 9])).to.eql([ "ping", "ping", "ping"]);
   });
 
-    it("does not replace numbers not divisible by 3 with ping", function() {
-      expect(pingPong([3, 6, 11])).to.eql([ "ping", "ping", 11]);
-    });
+  it("does not replace numbers not divisible by 3 with ping",     function() {
+    expect(pingPong([3, 6, 11])).to.eql([ "ping", "ping", 11]);
+  });
+
+  it("replaces numbers divisible by 3, 5, and 15 with ping, pong, and pingpong", function() {
+    expect(pingPong([3, 5, 15])).to.eql([ "ping", "pong", "pingpong"]);
+  });
 
 });
